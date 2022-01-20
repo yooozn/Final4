@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Levels/Tileset/SparkForestLevels/Spark Forest Levels.tscn" type="PackedScene" id=1]
+
+[node name="BammBoss" type="Node2D"]
+
+[node name="Spark Forest Levels" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 4, 0 )
