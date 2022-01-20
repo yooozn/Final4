@@ -214,7 +214,7 @@ func _attack2():
 		_anim_player.play("attack2")
 		yield(get_tree().create_timer(.03),"timeout")
 		position += Vector2(-312, 80)
-		TweenNode.interpolate_property(self,"position:x", (position.x + 60), (position.x - 2500),2 + phase1Timer,Tween.TRANS_LINEAR,Tween.EASE_IN,.4)#Make delay 1 second to start after animation finishes
+		TweenNode.interpolate_property(self,"position:x", (position.x + 60), (position.x - 2500),2 + phase1Timer,Tween.TRANS_LINEAR,Tween.EASE_IN,.65)#Make delay 1 second to start after animation finishes
 		TweenNode.start()
 		yield(get_tree().create_timer(2 + phase1Timer),"timeout")
 		position -= Vector2(-312,80)
@@ -223,7 +223,7 @@ func _attack2():
 		_anim_player.play("attack2 right")
 		yield(get_tree().create_timer(.03),"timeout")
 		position += Vector2(312, 80)
-		TweenNode.interpolate_property(self,"position:x", (position.x - 60), (position.x + 2500), 2 + phase1Timer,Tween.TRANS_LINEAR,Tween.EASE_IN,.4)
+		TweenNode.interpolate_property(self,"position:x", (position.x - 60), (position.x + 2500), 2 + phase1Timer,Tween.TRANS_LINEAR,Tween.EASE_IN,.65)
 		TweenNode.start()
 		yield(get_tree().create_timer(2 + phase1Timer),"timeout")
 		position -= Vector2(312, 80)
