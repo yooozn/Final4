@@ -496,6 +496,23 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 0.45, 0.45 ) ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.781, 2.059 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "projectileAttack2"
+}, {
+"args": [  ],
+"method": "projectileAttack1"
+} ]
+}
 
 [sub_resource type="Animation" id=19]
 resource_name = "attack3maybeRight"
@@ -549,9 +566,27 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 0.45, 0.45 ) ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.852, 2.059 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "projectileAttack1"
+}, {
+"args": [  ],
+"method": "projectileAttack2"
+} ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "attack4"
+length = 3.0
 step = 0.143
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -601,9 +636,42 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 0.45, 0.46 ) ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.715, 1.001, 1.287, 1.573, 1.859, 2.145, 2.574 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "projectileAttack3"
+}, {
+"args": [  ],
+"method": "projectileAttack3"
+}, {
+"args": [  ],
+"method": "projectileAttack3"
+}, {
+"args": [  ],
+"method": "projectileAttack3"
+}, {
+"args": [  ],
+"method": "projectileAttack3"
+}, {
+"args": [  ],
+"method": "projectileAttack3"
+}, {
+"args": [  ],
+"method": "projectileAttack3"
+} ]
+}
 
 [sub_resource type="Animation" id=20]
 resource_name = "attack4 right"
+length = 3.0
 step = 0.143
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -652,6 +720,41 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0.45, 0.46 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.572, 0.858, 1.144, 1.43, 1.716, 2.145, 2.574, 2.86 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "projectileAttack4"
+}, {
+"args": [  ],
+"method": "projectileAttack4"
+}, {
+"args": [  ],
+"method": "projectileAttack4"
+}, {
+"args": [  ],
+"method": "projectileAttack4"
+}, {
+"args": [  ],
+"method": "projectileAttack4"
+}, {
+"args": [  ],
+"method": "projectileAttack4"
+}, {
+"args": [  ],
+"method": "projectileAttack4"
+}, {
+"args": [  ],
+"method": "projectileAttack4"
+} ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -704,6 +807,20 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.93 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "projectileAttack5"
+} ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -1257,10 +1374,11 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D/BammBoss"]
 material = ExtResource( 86 )
-scale = Vector2( 0.45, 0.45 )
+scale = Vector2( 0.45, 0.46 )
 frames = SubResource( 1 )
-animation = "attack5"
-frame = 1
+animation = "attack4"
+frame = 8
+flip_h = true
 
 [node name="Body" type="CollisionShape2D" parent="Node2D/BammBoss"]
 position = Vector2( 15.2231, 85.2141 )
