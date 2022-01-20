@@ -12,16 +12,79 @@
 [ext_resource path="res://Characters/light.png" type="Texture" id=10]
 
 [sub_resource type="VisualShader" id=1]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx;
+
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Output:0
+
+}
+
+void light() {
+// Output:0
+
+}
+"
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
 
 [sub_resource type="VisualShader" id=3]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx;
+
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Output:0
+
+}
+
+void light() {
+// Output:0
+
+}
+"
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = SubResource( 3 )
 
 [sub_resource type="VisualShader" id=5]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx;
+
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Output:0
+
+}
+
+void light() {
+// Output:0
+
+}
+"
 
 [sub_resource type="ShaderMaterial" id=6]
 render_priority = 1
@@ -285,9 +348,7 @@ polygon = PoolVector2Array( -10.4957, -4.00331, -5.36686, -4.08608, -5.57764, 4.
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 45.3759, 40.5604 )
 
-[node name="Player" type="KinematicBody2D" groups=[
-"Player",
-]]
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 257
 script = ExtResource( 1 )
@@ -404,8 +465,8 @@ position = Vector2( -1.66367, -47.0271 )
 scale = Vector2( 0.33434, 0.33434 )
 z_index = 8
 texture = ExtResource( 9 )
-vframes = 6
 hframes = 5
+vframes = 6
 frame = 24
 
 [node name="World_collision" type="CollisionShape2D" parent="."]
@@ -469,19 +530,16 @@ range_layer_max = 8
 shadow_enabled = true
 shadow_gradient_length = 3.0
 
-[node name="Attack" type="Area2D" parent="." groups=[
-"Attack",
-]]
+[node name="Attack" type="Area2D" parent="." groups=["Attack"]]
 position = Vector2( 30.2647, -33.0201 )
-monitoring = false
 collision_layer = 2
 collision_mask = 2
+monitoring = false
 
-[node name="Attack_collision" type="CollisionShape2D" parent="Attack" groups=[
-"Attack",
-]]
+[node name="Attack_collision" type="CollisionShape2D" parent="Attack" groups=["Attack"]]
 position = Vector2( -0.671982, 2.06622 )
 shape = SubResource( 19 )
+
 [connection signal="grounded_updated" from="." to="Camera2D" method="_on_Player_grounded_updated"]
 [connection signal="health_update" from="." to="Camera2D/Post Processing/Curve/ui/Health" method="_on_Player_health_update"]
 [connection signal="timeout" from="Dash" to="." method="_on_Dash_timeout"]
