@@ -346,7 +346,7 @@ tracks/0/keys = {
 polygon = PoolVector2Array( -10.4957, -4.00331, -5.36686, -4.08608, -5.57764, 4.02564, -11.1983, 4.60504 )
 
 [sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 45.3759, 40.5604 )
+extents = Vector2( 138, 40.5604 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 2
@@ -537,7 +537,7 @@ collision_mask = 2
 monitoring = false
 
 [node name="Attack_collision" type="CollisionShape2D" parent="Attack" groups=["Attack"]]
-position = Vector2( -0.671982, 2.06622 )
+position = Vector2( -30.2647, 2.06622 )
 shape = SubResource( 19 )
 
 [connection signal="grounded_updated" from="." to="Camera2D" method="_on_Player_grounded_updated"]
