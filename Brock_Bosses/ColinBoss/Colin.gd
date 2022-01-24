@@ -96,9 +96,9 @@ func _attack1():
 #		TweenNode.interpolate_property(self, "position", position, target, .7,Tween.TRANS_LINEAR,Tween.EASE_IN)
 #		TweenNode.start()
 		if phase == 1:
-			yield(get_tree().create_timer(2.4),"timeout")
+			yield(get_tree().create_timer(2.5),"timeout")
 		elif phase == 2:
-			yield(get_tree().create_timer(1.8),"timeout")
+			yield(get_tree().create_timer(2),"timeout")
 		if numAttacks >= 1:
 			print(numAttacks)
 			_attack1()
@@ -118,9 +118,9 @@ func _attack1():
 		TweenNode.interpolate_property(self, "position:y", (target.y - 200), 0, .35,Tween.TRANS_QUAD,Tween.EASE_IN,.35)
 		TweenNode.start()
 		if phase == 1:
-			yield(get_tree().create_timer(2.4),"timeout")
+			yield(get_tree().create_timer(2.6),"timeout")
 		elif phase == 2:
-			yield(get_tree().create_timer(1.8),"timeout")
+			yield(get_tree().create_timer(2),"timeout")
 		if numAttacks >= 1:
 			print(numAttacks)
 			_attack1()
@@ -159,9 +159,9 @@ func Middle():
 func Idle():
 	_anim_player.play("idle")
 	if phase == 1:
-		yield(get_tree().create_timer(2),"timeout")
+		yield(get_tree().create_timer(2.2),"timeout")
 	elif phase == 2:
-		yield(get_tree().create_timer(1),"timeout")
+		yield(get_tree().create_timer(1.4),"timeout")
 	_attack()
 
 func _attack2():
@@ -171,9 +171,9 @@ func _attack2():
 	else:
 		_anim_player.play("attack2 right")
 	if phase == 1:
-		yield(get_tree().create_timer(2.5),"timeout")
+		yield(get_tree().create_timer(2.7),"timeout")
 	elif phase == 2:
-		yield(get_tree().create_timer(1.8),"timeout")
+		yield(get_tree().create_timer(2),"timeout")
 	Middle()
 
 func _attack3():
@@ -183,13 +183,13 @@ func _attack3():
 		TweenNode.interpolate_property(self, "position:x", (position.x - 150), target, 1,Tween.TRANS_LINEAR,Tween.EASE_IN)
 		TweenNode.start()
 		_anim_player.play("attack3")
-		yield(get_tree().create_timer(2),"timeout")
+		yield(get_tree().create_timer(2.2),"timeout")
 		Middle()
 	else:
 		TweenNode.interpolate_property(self, "position:x", (position.x + 150), target, 1,Tween.TRANS_LINEAR,Tween.EASE_IN)
 		TweenNode.start()
 		_anim_player.play("attack3 right")
-		yield(get_tree().create_timer(2),"timeout")
+		yield(get_tree().create_timer(2.2),"timeout")
 		Middle()
 	
 #323

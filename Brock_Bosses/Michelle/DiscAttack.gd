@@ -10,8 +10,8 @@ onready var TweenNode = $Tween
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	target = Globals.player.global_position.x
-	TweenNode.interpolate_property(self,"position:x", position.x, (position.x + 1600), 1.3,Tween.TRANS_LINEAR,Tween.EASE_IN)
-	TweenNode.interpolate_property(self,"position:x", (position.x + 1600), position.x, 1.3,Tween.TRANS_LINEAR,Tween.EASE_IN, 1.3)
+	TweenNode.interpolate_property(self,"position:x", position.x, (position.x + 1250), 1.3,Tween.TRANS_LINEAR,Tween.EASE_IN)
+	TweenNode.interpolate_property(self,"position:x", (position.x + 1250), position.x, 1.3,Tween.TRANS_LINEAR,Tween.EASE_IN, 1.3)
 	TweenNode.start()
 	yield(get_tree().create_timer(2.6),"timeout")
 	queue_free()
