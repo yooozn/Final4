@@ -2,11 +2,12 @@ extends Node
 
 var save_path = "user://save.dat"
 var room = "res://Spark Forest.tscn"
+var playerPos = Vector2(0,0)
 
 func _Save():
 	var data = {
 		"1" : room,
-		"2" : "two",
+		"2" : playerPos,
 		"3" : "three",
 		"4" : "four",
 		"5" : "five"
@@ -40,5 +41,7 @@ func _Load():
 			var player_data = file.get_var()
 			file.close()
 			room = player_data["1"]
+			playerPos = player_data["2"]
+			Globals.player_initial_map_position = playerPos
 			get_tree().change_scene(room)
 			print(player_data["1"])

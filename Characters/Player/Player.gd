@@ -45,9 +45,13 @@ func _ready():
 	Globals.player = self
 	print(str(get_owner().get_filename()))
 	SaveAndLoad.room = str(get_owner().get_filename())
+	SaveAndLoad.playerPos = Globals.player_initial_map_position
 	SaveAndLoad._Save()
 
 func _process(delta):
+	if Input.is_key_pressed(KEY_2):
+		SaveAndLoad.playerPos = position
+		SaveAndLoad._Save()
 	var was_grounded = is_grounded
 	is_grounded = is_on_floor()
 	if was_grounded == null || is_grounded != was_grounded:
