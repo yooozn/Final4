@@ -465,15 +465,15 @@ texture = ExtResource( 3 )
 layer = 19
 script = ExtResource( 4 )
 
-[node name="Health_Bar_2 (1)" type="Sprite" parent="Player/Camera2D/Post Processing/Curve/ui/Health"]
-position = Vector2( 205.916, 178.932 )
-scale = Vector2( 0.253553, 0.33434 )
-texture = ExtResource( 5 )
-
 [node name="1" type="Sprite" parent="Player/Camera2D/Post Processing/Curve/ui/Health"]
 position = Vector2( 77.3043, 71.695 )
 scale = Vector2( 0.0577467, 0.0597551 )
 texture = ExtResource( 6 )
+
+[node name="Health_Bar_2 (1)" type="Sprite" parent="Player/Camera2D/Post Processing/Curve/ui/Health"]
+position = Vector2( 205.916, 178.932 )
+scale = Vector2( 0.253553, 0.33434 )
+texture = ExtResource( 5 )
 
 [node name="2" type="Sprite" parent="Player/Camera2D/Post Processing/Curve/ui/Health"]
 position = Vector2( 136.304, 71.695 )
