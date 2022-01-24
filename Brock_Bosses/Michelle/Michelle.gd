@@ -113,14 +113,14 @@ func damage(damage):
 		shader.set_shader_param("flash_modifier", 1)
 		yield(get_tree().create_timer(.07),"timeout")
 		shader.set_shader_param("flash_modifier", 0)
-		if healthPhase1 == 0:
+		if healthPhase1 <= 0:
 			phase = 2
 	elif phase == 2:
 		healthPhase2 -= damage
 		shader.set_shader_param("flash_modifier", 1)
 		yield(get_tree().create_timer(.07),"timeout")
 		shader.set_shader_param("flash_modifier", 0)
-		if healthPhase2 == 0:
+		if healthPhase2 <= 0:
 			queue_free()
 
 
@@ -146,24 +146,44 @@ func projectile2():
 
 func projectile3():
 	if $AnimatedSprite.global_position.x - Globals.player.global_position.x >= 1:
+		yield(get_tree().create_timer(1),"timeout")
 		var proj1 = proj2.instance()
 		proj1.position = position + Vector2(rng.randi_range(-200, 200),rng.randi_range(-200,80))
 		get_parent().add_child(proj1)
+		yield(get_tree().create_timer(.6),"timeout")
+		var proj22 = proj2.instance()
+		proj22.position = position + Vector2(rng.randi_range(-200, 200),rng.randi_range(-200,80))
+		get_parent().add_child(proj22)
+		yield(get_tree().create_timer(.6),"timeout")
+		var proj3 = proj2.instance()
+		proj3.position = position + Vector2(rng.randi_range(-200, 200),rng.randi_range(-200,80))
+		get_parent().add_child(proj3)
 	else:
+		yield(get_tree().create_timer(1),"timeout")
 		var proj1 = proj3.instance()
 		proj1.position = position + Vector2(rng.randi_range(-200, 200),rng.randi_range(-200,80))
 		get_parent().add_child(proj1)
+		yield(get_tree().create_timer(.6),"timeout")
+		var proj2 = proj3.instance()
+		proj2.position = position + Vector2(rng.randi_range(-200, 200),rng.randi_range(-200,80))
+		get_parent().add_child(proj2)
+		yield(get_tree().create_timer(.6),"timeout")
+		var proj33 = proj3.instance()
+		proj33.position = position + Vector2(rng.randi_range(-200, 200),rng.randi_range(-200,80))
+		get_parent().add_child(proj33)
 
 func _attack3():
 	if $AnimatedSprite.global_position.x - Globals.player.global_position.x >= 1:
 		position += Vector2(-120,46)
 		_anim_player.play("attack3")
+		projectile3()
 		yield(get_tree().create_timer(5),"timeout")
 		position -= Vector2(-120,46)
 		_attack()
 	else:
 		position += Vector2(120,46)
 		_anim_player.play("attack3 right")
+		projectile3()
 		yield(get_tree().create_timer(5),"timeout")
 		position -= Vector2(120,46)
 		_attack()
