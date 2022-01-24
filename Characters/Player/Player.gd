@@ -43,6 +43,9 @@ func _ready():
 	#Position of the player when entering the portal
 	self.global_position = Globals.player_initial_map_position
 	Globals.player = self
+	print(str(get_owner().get_filename()))
+	SaveAndLoad.room = str(get_owner().get_filename())
+	SaveAndLoad._Save()
 
 func _process(delta):
 	var was_grounded = is_grounded
