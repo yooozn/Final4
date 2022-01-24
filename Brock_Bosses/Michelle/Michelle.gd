@@ -8,6 +8,8 @@ onready var _anim_player = $AnimationPlayer
 onready var TweenNode = $Tween
 export var healthPhase1 = 10
 export var healthPhase2 = 10
+export var healthStealNum = 8
+var healthStealCount = 0
 var rng = RandomNumberGenerator.new()
 var random
 var phase = 1
@@ -108,6 +110,11 @@ func _attack2():
 	_attack()
 
 func damage(damage):
+	healthStealCount += 1
+	if healthStealCount >= healthStealNum and Globals.player.health < 5:
+		healthStealCount = 0
+		Globals.player.health += 1
+		Globals.player.health_update()
 	if phase == 1:
 		healthPhase1 -= damage
 		shader.set_shader_param("flash_modifier", 1)
