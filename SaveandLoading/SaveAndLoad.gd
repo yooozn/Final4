@@ -1,7 +1,7 @@
 extends Node
 
 var save_path = "user://save.dat"
-var room = "res://Brock_Bosses/Bamm/Bamm.tscn"
+var room = "res://Spark Forest.tscn"
 
 func _Save():
 	var data = {
@@ -30,6 +30,7 @@ func _newGame():
 	if error == OK: 
 		file.store_var(data)
 		file.close()
+	get_tree().change_scene("res://Spark Forest.tscn")
 	
 func _Load():
 	var file = File.new()

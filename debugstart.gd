@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_newgame_pressed():
-	pass # Replace with function body.
+	SaveAndLoad._newGame()
 
 
 func _on_load_pressed():
