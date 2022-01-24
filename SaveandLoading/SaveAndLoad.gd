@@ -16,6 +16,20 @@ func _Save():
 	if error == OK: 
 		file.store_var(data)
 		file.close()
+
+func _newGame():
+	var data = {
+		"1" : "res://Spark Forest.tscn",
+		"2" : "two",
+		"3" : "three",
+		"4" : "four",
+		"5" : "five"
+	}
+	var file = File.new()
+	var error = file.open(save_path,File.WRITE)
+	if error == OK: 
+		file.store_var(data)
+		file.close()
 	
 func _Load():
 	var file = File.new()

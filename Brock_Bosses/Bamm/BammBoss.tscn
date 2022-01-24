@@ -109,16 +109,6 @@ animations = [ {
 "name": "attack1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 31 ), ExtResource( 10 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 25 ), ExtResource( 11 ), ExtResource( 18 ), ExtResource( 29 ) ],
-"loop": true,
-"name": "attack2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 44 ) ],
-"loop": true,
-"name": "idleBlur",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 77 ), ExtResource( 69 ), ExtResource( 59 ), ExtResource( 61 ), ExtResource( 46 ), ExtResource( 62 ), ExtResource( 78 ), ExtResource( 45 ), ExtResource( 68 ) ],
 "loop": true,
 "name": "attack4",
@@ -127,6 +117,16 @@ animations = [ {
 "frames": [ ExtResource( 47 ), ExtResource( 53 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 41 ), ExtResource( 65 ) ],
 "loop": true,
 "name": "attack5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 44 ) ],
+"loop": true,
+"name": "idleBlur",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 10 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 25 ), ExtResource( 11 ), ExtResource( 18 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "attack2",
 "speed": 5.0
 } ]
 
