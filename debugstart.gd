@@ -19,3 +19,4 @@ func _on_newgame_pressed():
 
 func _on_load_pressed():
 	SaveAndLoad._Load()
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Characters/Player/player2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Tileset/SparkForestLevels/Spark Forest Levels.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Particles/Clouds.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Particles/Leaves.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Levels/BG/BackroundSparkForest.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/Level Scenes/Spark Forest 1-2.gd" type="Script" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 627.07
@@ -24,6 +25,7 @@ animations = [ {
 } ]
 
 [node name="Spark Forest 1-2" type="Node2D"]
+script = ExtResource( 12 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1855.13, 1951.47 )
