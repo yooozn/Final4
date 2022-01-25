@@ -349,14 +349,14 @@ func _attack4():
 	if $AnimatedSprite.global_position.x - Globals.player.global_position.x >= 0:
 		_anim_player.play(\"attack4 right\")
 		yield(get_tree().create_timer(.03),\"timeout\")
-		position += Vector2(0, 160)
+		position += Vector2(0, 250)
 		yield(get_tree().create_timer(3.5),\"timeout\")
 #		position -= Vector2(0, 354)
 #		print(\"TEST\")
 	else:
 		_anim_player.play(\"attack4\")
 		yield(get_tree().create_timer(.03),\"timeout\")
-		position += Vector2(25, 160)
+		position += Vector2(35, 250)
 		yield(get_tree().create_timer(3.5),\"timeout\")
 #		print(\"TEST\")
 #		position -= Vector2(56, 354)
