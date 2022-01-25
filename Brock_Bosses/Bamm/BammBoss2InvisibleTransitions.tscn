@@ -94,8 +94,8 @@ var inRange = false
 var immunity = false
 var phase = 1
 var offsetValue = Vector2(1032,1612)
-var healthPhase1 = 10
-var healthPhase2 = 10
+export var healthPhase1 = 10
+export var healthPhase2 = 10
 var phase1Timer = .4
 onready var shader = $AnimatedSprite.material
 onready var _anim_player = $AnimationPlayer
@@ -2738,10 +2738,10 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("Body:disabled")
@@ -2750,10 +2750,10 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -2833,12 +2833,16 @@ position = Vector2( 1021, 1611 )
 collision_layer = 3
 collision_mask = 3
 script = SubResource( 21 )
+healthPhase1 = 30
+healthPhase2 = 20
+playerHealthValue = 8
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D/BammBoss"]
 material = ExtResource( 86 )
 scale = Vector2( 0.37, 0.37 )
 frames = SubResource( 1 )
 animation = "idle"
+flip_h = true
 
 [node name="Body" type="CollisionShape2D" parent="Node2D/BammBoss"]
 position = Vector2( 15.2231, 85.2141 )
