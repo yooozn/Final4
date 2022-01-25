@@ -114,6 +114,8 @@ onready var proj2 = preload(\"res://Brock_Bosses/Bamm/BammProjectile3.tscn\")
 onready var proj3 = preload(\"res://Brock_Bosses/Bamm/BammProjectile2.tscn\")
 onready var proj4 = preload(\"res://Brock_Bosses/Bamm/BammProjectile4.tscn\")
 onready var proj5 = preload(\"res://Brock_Bosses/Bamm/BammProjectile5.tscn\")
+
+var checkDir = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Starts game with detection range monitoring collision and in idle position
@@ -138,7 +140,14 @@ func _process(delta):
 			canDamage = true
 		else:
 			canDamage = false
-
+	
+	if checkDir == true:
+		if $AnimatedSprite.global_position.x - Globals.player.position.x >= 0:
+			#Check direction again incase player moved to other side of boss. Allows for more dynamic animations
+			_anim_player.play(\"idlePos2\")
+		else:
+			_anim_player.play(\"idlePos2Right\")
+		#Attack after yield statement has run
 
 func _on_BammBoss_body_entered(body):
 	if body.is_in_group(\"Player\"):
@@ -173,7 +182,6 @@ func damage(damage):
 		shader.set_shader_param(\"flash_modifier\", 0)
 		if healthPhase2 == 0:
 			queue_free()
-
 
 func _on_DetectionRange_body_entered(body):
 	#If player enters the detection area, set detection area monitoring to false.
@@ -213,6 +221,7 @@ func _attack():
 	#call attack method depending on what number is picked
 	var random = rng.randi_range(1,4)
 	yield(get_tree().create_timer(.9 + phase1Timer),\"timeout\")
+	checkDir = false
 #	_anim_player.play(\"idleInvis\")
 	if random == 1:
 		_attack1()
@@ -249,13 +258,14 @@ func followPlayer():
 			_anim_player.play(\"idleInvisible\")
 			yield(get_tree().create_timer(.6 + phase1Timer),\"timeout\")
 	#		_anim_player.play(\"idlePos2Right\")
-		if $AnimatedSprite.global_position.x - Globals.player.position.x >= 0:
-			#Check direction again incase player moved to other side of boss. Allows for more dynamic animations
-			_anim_player.play(\"idlePos2\")
-		else:
-			_anim_player.play(\"idlePos2Right\")
-		#Attack after yield statement has run
+#		if $AnimatedSprite.global_position.x - Globals.player.position.x >= 0:
+#			#Check direction again incase player moved to other side of boss. Allows for more dynamic animations
+#			_anim_player.play(\"idlePos2\")
+#		else:
+#			_anim_player.play(\"idlePos2Right\")
+#		#Attack after yield statement has run
 		_attack()
+		checkDir = true
 	else:
 		if $AnimatedSprite.global_position.x - Globals.player.global_position.x >= 0:
 			_anim_player.play(\"idleBlur\")
@@ -264,7 +274,7 @@ func followPlayer():
 #		TweenNode.interpolate_property(self, \"position\", position, (Globals.player.position - offsetValue + Vector2(0,-550)), .9,Tween.TRANS_LINEAR,Tween.EASE_IN)
 		TweenNode.interpolate_property(self, \"position:x\", position.x, (Globals.player.position.x - offsetValue.x), .5 + phase1Timer,Tween.TRANS_LINEAR,Tween.EASE_IN)
 		TweenNode.interpolate_property(self, \"position:y\", position.y, -350, .5 + phase1Timer,Tween.TRANS_LINEAR,Tween.EASE_IN)
-		TweenNode.interpolate_property(self, \"scale\", scale, Vector2(.7, .7),.5 + phase1Timer,Tween.TRANS_LINEAR,Tween.EASE_IN)
+#		TweenNode.interpolate_property(self, \"scale\", scale, Vector2(.7, .7),.5 + phase1Timer,Tween.TRANS_LINEAR,Tween.EASE_IN)
 		TweenNode.start()
 		yield(get_tree().create_timer(.6 + phase1Timer),\"timeout\")
 		if $AnimatedSprite.global_position.x - Globals.player.global_position.x >= 0:
@@ -350,7 +360,7 @@ func _attack4():
 		yield(get_tree().create_timer(3.5),\"timeout\")
 #		print(\"TEST\")
 #		position -= Vector2(56, 354)
-	scale = Vector2(1,1)
+#	scale = Vector2(1,1)
 	followPlayer()
 
 func _attack5():
@@ -425,14 +435,14 @@ animations = [ {
 "name": "attack3",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 44 ) ],
+"loop": true,
+"name": "idleBlur",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 13 ), ExtResource( 28 ), ExtResource( 3 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 27 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 23 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 6 ), ExtResource( 14 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "attack1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 31 ), ExtResource( 10 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 25 ), ExtResource( 11 ), ExtResource( 18 ), ExtResource( 29 ) ],
-"loop": true,
-"name": "attack2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 47 ), ExtResource( 53 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 41 ), ExtResource( 65 ) ],
@@ -440,14 +450,14 @@ animations = [ {
 "name": "attack5",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 44 ) ],
-"loop": true,
-"name": "idleBlur",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 77 ), ExtResource( 69 ), ExtResource( 59 ), ExtResource( 61 ), ExtResource( 46 ), ExtResource( 62 ), ExtResource( 78 ), ExtResource( 45 ), ExtResource( 68 ) ],
 "loop": true,
 "name": "attack4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 10 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 25 ), ExtResource( 11 ), ExtResource( 18 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "attack2",
 "speed": 5.0
 } ]
 
