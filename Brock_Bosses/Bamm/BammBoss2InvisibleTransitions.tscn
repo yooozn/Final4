@@ -273,7 +273,7 @@ func followPlayer():
 			_anim_player.play(\"idleBlurRight\")
 #		TweenNode.interpolate_property(self, \"position\", position, (Globals.player.position - offsetValue + Vector2(0,-550)), .9,Tween.TRANS_LINEAR,Tween.EASE_IN)
 		TweenNode.interpolate_property(self, \"position:x\", position.x, (Globals.player.position.x - offsetValue.x), .5 + phase1Timer,Tween.TRANS_LINEAR,Tween.EASE_IN)
-		TweenNode.interpolate_property(self, \"position:y\", position.y, -350, .5 + phase1Timer,Tween.TRANS_LINEAR,Tween.EASE_IN)
+		TweenNode.interpolate_property(self, \"position:y\", position.y, -330, .5 + phase1Timer,Tween.TRANS_LINEAR,Tween.EASE_IN)
 #		TweenNode.interpolate_property(self, \"scale\", scale, Vector2(.7, .7),.5 + phase1Timer,Tween.TRANS_LINEAR,Tween.EASE_IN)
 		TweenNode.start()
 		yield(get_tree().create_timer(.6 + phase1Timer),\"timeout\")
@@ -2833,16 +2833,16 @@ position = Vector2( 1021, 1611 )
 collision_layer = 3
 collision_mask = 3
 script = SubResource( 21 )
-healthPhase1 = 30
-healthPhase2 = 20
+healthPhase1 = 1
+healthPhase2 = 100
 playerHealthValue = 8
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D/BammBoss"]
 material = ExtResource( 86 )
-scale = Vector2( 0.37, 0.37 )
+scale = Vector2( 0.45, 0.45 )
 frames = SubResource( 1 )
-animation = "idle"
-flip_h = true
+animation = "attack5"
+frame = 7
 
 [node name="Body" type="CollisionShape2D" parent="Node2D/BammBoss"]
 position = Vector2( 15.2231, 85.2141 )
