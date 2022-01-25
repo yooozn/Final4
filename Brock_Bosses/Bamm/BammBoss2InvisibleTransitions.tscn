@@ -430,9 +430,9 @@ animations = [ {
 "name": "attack1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 77 ), ExtResource( 69 ), ExtResource( 59 ), ExtResource( 61 ), ExtResource( 46 ), ExtResource( 62 ), ExtResource( 78 ), ExtResource( 45 ), ExtResource( 68 ) ],
+"frames": [ ExtResource( 31 ), ExtResource( 10 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 25 ), ExtResource( 11 ), ExtResource( 18 ), ExtResource( 29 ) ],
 "loop": true,
-"name": "attack4",
+"name": "attack2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 47 ), ExtResource( 53 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 41 ), ExtResource( 65 ) ],
@@ -445,9 +445,9 @@ animations = [ {
 "name": "idleBlur",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 31 ), ExtResource( 10 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 25 ), ExtResource( 11 ), ExtResource( 18 ), ExtResource( 29 ) ],
+"frames": [ ExtResource( 77 ), ExtResource( 69 ), ExtResource( 59 ), ExtResource( 61 ), ExtResource( 46 ), ExtResource( 62 ), ExtResource( 78 ), ExtResource( 45 ), ExtResource( 68 ) ],
 "loop": true,
-"name": "attack2",
+"name": "attack4",
 "speed": 5.0
 } ]
 
@@ -2427,6 +2427,30 @@ tracks/9/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("Body:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Weapon:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=15]
 resource_name = "idlePos2"
@@ -2557,10 +2581,10 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("Weapon:disabled")
@@ -2569,10 +2593,10 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -2804,7 +2828,7 @@ script = SubResource( 21 )
 material = ExtResource( 86 )
 scale = Vector2( 0.37, 0.37 )
 frames = SubResource( 1 )
-animation = "attack1"
+animation = "idle"
 
 [node name="Body" type="CollisionShape2D" parent="Node2D/BammBoss"]
 position = Vector2( 15.2231, 85.2141 )
