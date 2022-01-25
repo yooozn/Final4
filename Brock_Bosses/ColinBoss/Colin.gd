@@ -41,7 +41,7 @@ func _ready():
 func _process(delta):
 	if healthPhase1 == 0:
 		phase = 2
-		print("phase2")
+#		print("phase2")
 	if healthPhase2 == 0:
 		queue_free()
 	if canDamage == true and inRange == true and immunity == false:
@@ -103,7 +103,7 @@ func _attack1():
 		elif phase == 2:
 			yield(get_tree().create_timer(2),"timeout")
 		if numAttacks >= 1:
-			print(numAttacks)
+#			print(numAttacks)
 			_attack1()
 		else:
 			var AttackMid = rng.randi_range(1,2)
@@ -125,7 +125,7 @@ func _attack1():
 		elif phase == 2:
 			yield(get_tree().create_timer(2),"timeout")
 		if numAttacks >= 1:
-			print(numAttacks)
+#			print(numAttacks)
 			_attack1()
 		else:
 			var AttackMid = rng.randi_range(1,2)
@@ -202,7 +202,7 @@ func _projectile():
 	var proj = projectile.instance()
 	proj.position = position
 	get_parent().add_child(proj)
-	print(str(position) + "BOSS POSITION")
+#	print(str(position) + "BOSS POSITION")
 
 func _projectile2():
 	var proj = projectile2.instance()

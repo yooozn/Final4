@@ -8,7 +8,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Timer_timeout():
-	print('queue_free')
+#	print('queue_free')
 	queue_free()
 	pass # Replace with function body.
 

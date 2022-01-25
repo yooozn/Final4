@@ -61,6 +61,9 @@ func _Load():
 
 
 func _on_Timer_timeout():
-	if cutscene == false and bossfight == false and Globals.player.is_on_floor() == true:
-		playerPos = Globals.player.position
-		_Save()
+	if Globals.player != null:
+		if cutscene == false and bossfight == false and Globals.player.is_on_floor() == true:
+			playerPos = Globals.player.position
+			print("Saved")
+			_Save()
+		pass

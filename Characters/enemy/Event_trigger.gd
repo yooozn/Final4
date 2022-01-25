@@ -14,14 +14,14 @@ var health = 5
 func _on_Area2D_body_entered(Area2D):
 	if Area2D.is_in_group('Player') and Can_damage == true:
 		Area2D.damage(Damage)
-	print('enemy')
+#	print('enemy')
 	pass # Replace with function body..
 
 func damage(damage):
 	$Damage.play()
 	$DamageTimer.start()
 	Can_damage = false 
-	print(damage)
+#	print(damage)
 	health -= 1
 	if health == 0: 
 		queue_free()

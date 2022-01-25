@@ -106,7 +106,7 @@ func input_stuff():
 			if is_on_floor():
 				$AnimationPlayer.play("Walk")
 	if Input.is_action_just_pressed("jump"):
-		print("jumped")
+#		print("jumped")
 		jump('up')
 #		$AnimationPlayer.play("Jump")
 	if Input.is_action_just_released("jump") and vel.y < 0:
@@ -116,7 +116,7 @@ func input_stuff():
 	if Input.is_action_just_pressed("attack"):
 		attack()
 	if Input.is_action_pressed("ui_down") and Input.is_action_just_pressed("attack") and !is_on_floor():
-		print("DownSlash")
+#		print("DownSlash")
 		attackdown()
 
 func jump(state):
@@ -125,23 +125,23 @@ func jump(state):
 			partical_make(jump_particles, self.position + Vector2(0, 25))
 			$jump_timer.start(jump_time)
 			$AnimationPlayer.play("Walk")
-			print('is on floor')
+#			print('is on floor')
 			vel.y = -jump
 	#		$AnimationPlayer.stop(true)
 			$AnimationPlayer.play("Jump")
-			print($AnimationPlayer.playback_active)
-		else: 
-			print(self.is_on_floor())
+#			print($AnimationPlayer.playback_active)
+#		else: 
+#			print(self.is_on_floor())
 		if is_on_wall():
-			print("Sam is drawing rn")
+#			print("Sam is drawing rn")
 			partical_make(jump_particles, self.position + Vector2(0, 25))
 			$jump_timer.start(jump_time)
 			$AnimationPlayer.play("Walk")
-			print('is on floor')
+#			print('is on floor')
 			vel.y = -jump
 	#		$AnimationPlayer.stop(true)
 			$AnimationPlayer.play("Jump")
-			print($AnimationPlayer.playback_active)
+#			print($AnimationPlayer.playback_active)
 
 	if state == 'down':
 		if $jump_timer.time_left <= 0:
@@ -152,7 +152,7 @@ func attack():
 		$AnimationPlayer.stop(true)
 	#	$AnimationPlayer.play("Punch")
 		$Attack_timer.start()
-		print(jab_num)
+#		print(jab_num)
 		if jab_num == 1:
 			$AnimationPlayer.play("Punch")
 			$Attack_timer.start()
@@ -171,7 +171,7 @@ func attackdown():
 		$AnimationPlayer.stop(true)
 	#	$AnimationPlayer.play("Punch")
 		$Attack_timer.start()
-		print(jab_num)
+#		print(jab_num)
 		if jab_num == 1:
 			$AnimationPlayer.play("")
 			$Attack_timer.start()
@@ -190,7 +190,7 @@ func damage(damage):
 		can_beHit = false
 		$DamageTimer.start(0.0)
 		$sound_damage.play(0.0)
-		print(damage)
+#		print(damage)
 		health -= damage
 		$Effects._damage(self.position)
 		health_update()
@@ -199,7 +199,7 @@ func damage(damage):
 func health_update():
 	$"Camera2D/Post Processing/Curve/ui/Health/"._on_Player_health_update(health)
 	emit_signal("health_update", health)
-	print('current health is ', health)
+#	print('current health is ', health)
 	pass
 
 
@@ -209,7 +209,7 @@ func dash():
 	$AnimationPlayer.play("Dash")
 	partical_make(jump_particles, self.position + Vector2(0, 25))
 	$sound_dash.play(0.0)
-	print("dash")
+#	print("dash")
 	vel.y = 0
 	gravity = 0
 	$Dash.start()
@@ -229,7 +229,7 @@ func partical_make(name, position):
 	add_child(particle_effect)
 
 func _on_Dash_timeout():
-	print('timeout')
+#	print('timeout')
 	vel.x = dir.x * speed
 	gravity = 180.8
 	can_move = true
@@ -237,7 +237,7 @@ func _on_Dash_timeout():
 	pass 
 
 func _on_DashLag_timeout():
-	print('dashlag')
+#	print('dashlag')
 	can_dash = true
 	pass 
 
@@ -269,7 +269,7 @@ func _on_Attack_timer2_timeout():
 
 
 func _on_jump_timer_timeout():
-	print('ended')
+#	print('ended')
 	jump('down')
 	pass 
 
@@ -286,20 +286,20 @@ func _on_Dash_invun_timeout():
 
 func _on_Attack_body_shape_entered(body_id, body, body_shape, local_shape):
 	if body.is_in_group('Enemy'):
-		print('collision')
-	print(body)
-	pass # Replace with function body.
+#		print('collision')
+#	print(body)
+		pass # Replace with function body.
 
 
 func _on_Attack_area_entered(area):
 	if area.is_in_group('Enemy'):
-		print('collision')
+#		print('collision')
 		area.damage(1)
 		jab_connected = true
-	print(area)
+#	print(area)
 	if area.is_in_group('Switch'):
-		print('opened')
-	pass
+#		print('opened')
+		pass
 
 func set_limit(left, right, top, bottom):
 	$Camera2D.limit_top = top

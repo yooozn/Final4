@@ -15,7 +15,7 @@ func _ready():
 	TweenNode.start()
 	yield(get_tree().create_timer(2.6),"timeout")
 	queue_free()
-	print(target)
+#	print(target)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
